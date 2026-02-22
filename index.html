@@ -1,50 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Chudy's Woodcarving Portfolio</title>
+    <title>Chudy - Řezbářství ze dřeva</title>
 </head>
 <body>
     <header>
         <nav>
-            <h1>Chudy's Woodcarving</h1>
+            <h1>🪵 Chudy's Woodcarving</h1>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">O mně</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="hero">
-        <h2>Welcome to My Woodcarving Portfolio</h2>
-        <p>Explore the art of woodcarving with my unique creations.</p>
+        <h2>Tradiční řezbářství ze dřeva</h2>
+        <p>Objevte krásu ručně vyřezávaných děl z kvalitního dřeva</p>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a passionate woodcarver with years of experience creating beautiful pieces from wood. Each piece is crafted with precision and love.</p>
+        <h2>O mně</h2>
+        <p>Jsem vášnivý řezbář se laskavostí k tradičnímu řemeslu. Svou činnost zaměřuji na vytváření jedinečných a kvalitních dřevěných výtvorů. Každé dílo je vytvořeno s péčí, pozorností k detailům a láskou k řemeslu. Používám jen to nejkvalitnější dřevo a tradiční techniky, abych vám přinesl opravdové mistrovské kusy.</p>
     </section>
 
     <section id="gallery">
-        <h2>Gallery</h2>
+        <h2>Galerie Mých Děl</h2>
         <div id="gallery-categories"></div>
         <div id="gallery-works"></div>
     </section>
 
     <section id="contact">
-        <h2>Contact Me</h2>
+        <h2>Kontaktujte Mě</h2>
+        <p>Máš zájem o mou práci nebo bys chtěl konzultovat vlastní projekt? Kontaktuj mě přes formulář níže!</p>
         <form>
-            <label for="name">Name:</label>
+            <label for="name">Jméno:</label>
             <input type="text" id="name" name="name" required>
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
+            
+            <label for="message">Zpráva:</label>
+            <textarea id="message" name="message" required rows="5"></textarea>
+            
+            <button type="submit">Odeslat zprávu</button>
         </form>
     </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
