@@ -1,4 +1,4 @@
-# Řezbářství Chudý
+# Řezbářství Chudy
 
 Jednoduchý web + API pro katalog děl.
 
