@@ -14,7 +14,6 @@ window.addEventListener('auth:changed', () => {
 async function initializeApp() {
   createAddWorkForm();
   setupContactForm();
-  setupBackToTop();
   await loadWorks();
   renderCategories();
   renderGallery();
@@ -275,26 +274,5 @@ function setupContactForm() {
     } catch (error) {
       resultNode.textContent = `Chyba: ${error.message}`;
     }
-  });
-}
-
-
-function setupBackToTop() {
-  const backToTop = document.getElementById('back-to-top');
-  if (!backToTop) return;
-
-  const toggleVisibility = () => {
-    if (window.scrollY > 320) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
-  };
-
-  window.addEventListener('scroll', toggleVisibility, { passive: true });
-  toggleVisibility();
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
