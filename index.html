@@ -10,18 +10,39 @@
     <header>
         <nav>
             <h1>🪵 Chudy's Woodcarving</h1>
-            <div id="auth-container"></div>
             <ul>
                 <li><a href="#about">O mně</a></li>
                 <li><a href="#gallery">Galerie</a></li>
                 <li><a href="#contact">Kontakt</a></li>
             </ul>
+            <div id="auth-container"></div>
         </nav>
     </header>
 
     <section id="hero">
-        <h2>Tradiční řezbářství ze dřeva</h2>
-        <p>Objevte krásu ručně vyřezávaných děl z kvalitního dřeva</p>
+        <div class="hero-content">
+            <p class="hero-kicker">Poctivé řemeslo • originální tvorba</p>
+            <h2>Ručně vyřezávané dřevěné výtvory s charakterem</h2>
+            <p>Vyrábím originální dekorace, figurky a zakázková díla z kvalitního dřeva. Každý kus je jedinečný a vytvořený s důrazem na detail.</p>
+            <div class="hero-actions">
+                <a href="#gallery" class="cta-btn">Prohlédnout galerii</a>
+                <a href="#contact" class="cta-btn cta-secondary">Nezávazná poptávka</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <article>
+                <strong>150+</strong>
+                <span>hotových výrobků</span>
+            </article>
+            <article>
+                <strong>8 let</strong>
+                <span>zkušeností s řezbářstvím</span>
+            </article>
+            <article>
+                <strong>100 %</strong>
+                <span>ruční práce</span>
+            </article>
+        </div>
     </section>
 
     <section id="about">
@@ -30,24 +51,29 @@
     </section>
 
     <section id="gallery">
-        <h2>Galerie Mých Děl</h2>
+        <div class="section-headline">
+            <h2>Galerie mých děl</h2>
+            <p>Vyber si kategorii nebo si projdi vše, co je aktuálně dostupné.</p>
+        </div>
         <div id="gallery-categories"></div>
         <div id="gallery-works"></div>
     </section>
 
     <section id="contact">
-        <h2>Kontaktujte Mě</h2>
-        <p>Máš zájem o mou práci nebo bys chtěl konzultovat vlastní projekt? Kontaktuj mě přes formulář níže!</p>
+        <div class="section-headline">
+            <h2>Kontaktujte mě</h2>
+            <p>Máš zájem o mou práci nebo bys chtěl konzultovat vlastní projekt? Napiš mi přes formulář níže.</p>
+        </div>
         <form>
             <label for="name">Jméno:</label>
             <input type="text" id="name" name="name" required>
-            
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="message">Zpráva:</label>
             <textarea id="message" name="message" required rows="5"></textarea>
-            
+
             <button type="submit">Odeslat zprávu</button>
         </form>
     </section>
