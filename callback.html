@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlašování...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f9f7f4 0%, #e8dcc8 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .loader {
+            text-align: center;
+        }
+        .loader h2 {
+            color: #8b6f47;
+            margin-bottom: 20px;
+        }
+        .spinner {
+            border: 4px solid #e8dcc8;
+            border-top: 4px solid #8b6f47;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <h2>Přihlašuji tě...</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // Get authorization code from URL
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+
+        if (code) {
+            // Store the code and redirect to exchange it
+            localStorage.setItem('github_code', code);
+            
+            // Create a simple backend exchange (you'll need to set this up)
+            // For now, we'll use a serverless function or create a simple Node.js backend
+            
+            // Redirect back to index
+            setTimeout(() => {
+                window.location.href = './index.html';
+            }, 1000);
+        } else {
+            const error = params.get('error');
+            alert('Chyba při přihlášení: ' + (error || 'Neznámá chyba'));
+            window.location.href = './index.html';
+        }
+    </script>
+</body>
+</html>
