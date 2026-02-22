@@ -2,7 +2,20 @@
 
 Jednoduchý web + API pro katalog děl.
 
-## Spuštění
+## GitHub Pages režim (doporučeno pro frontend)
+
+Frontend může běžet na GitHub Pages, ale API musí běžet samostatně (např. Render).
+
+1. Zkopíruj konfiguraci API URL:
+   ```bash
+   cp config.example.js config.js
+   ```
+2. V `config.js` nastav `API_BASE_URL` na URL backendu (např. `https://rezbarstvi-api.onrender.com`).
+3. Nahraj frontend na GitHub Pages.
+
+> Bez nastavené `API_BASE_URL` frontend předpokládá stejný origin jako API.
+
+## Lokální spuštění
 
 1. Nainstaluj závislosti:
    ```bash
@@ -12,7 +25,9 @@ Jednoduchý web + API pro katalog děl.
    ```bash
    cp .env.example .env
    ```
-3. V `.env` nastav `ADMIN_PASSWORD_HASH`.
+3. V `.env` nastav:
+   - `ADMIN_PASSWORD_HASH`
+   - `ALLOWED_ORIGIN` (frontend URL, např. `http://localhost:3000` nebo GitHub Pages URL)
 4. Spusť aplikaci:
    ```bash
    npm start
@@ -36,10 +51,3 @@ Aplikace poběží na `http://localhost:3000`.
 ## Nasazení zdarma
 
 Pro kombinaci **GitHub Pages + backend + úložiště obrázků** je doporučený postup v souboru `DEPLOYMENT_FREE.md`.
-
-
-## Stav frontendu
-
-- Přihlášení už používá backend endpointy (`/api/auth/login`, `/api/auth/me`, `/api/auth/logout`) a nepoužívá `localStorage` pro heslo.
-- Přidávání děl používá `input type="file"` a nahrává soubor přes `/api/uploads`, poté ukládá položku přes `/api/works`.
-- Kontaktní formulář odesílá data na `/api/contact` (varianta B).

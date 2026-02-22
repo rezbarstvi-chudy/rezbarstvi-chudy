@@ -26,6 +26,7 @@ Tahle kombinace je zdarma pro MVP, je stabilní a jednoduše se nastavuje.
 2. V repu otevři **Settings -> Pages**.
 3. Vyber branch `main` (nebo aktuální branch) a root `/`.
 4. Po publikaci dostaneš URL webu.
+5. Ve frontendu nastav `config.js` (`API_BASE_URL`) na URL Render backendu.
 
 ## Krok 2: Backend na Render (free)
 
@@ -40,6 +41,8 @@ Tahle kombinace je zdarma pro MVP, je stabilní a jednoduše se nastavuje.
    - `SESSION_SECRET=<silny_tajny_retezec>`
    - `ADMIN_USERNAME=admin`
    - `ADMIN_PASSWORD_HASH=<bcrypt hash>`
+   - `ALLOWED_ORIGIN=https://<user>.github.io` (nebo URL Pages projektu)
+   - `NODE_ENV=production`
    - (po napojení Supabase) `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_BUCKET`
 
 > Poznámka: free instance se může uspat při neaktivitě (cold start).

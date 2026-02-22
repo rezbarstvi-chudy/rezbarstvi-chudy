@@ -14,16 +14,33 @@ const PORT = process.env.PORT || 3000;
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
 const SESSION_SECRET = process.env.SESSION_SECRET || 'change-me-in-env';
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '';
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 5 * 1024 * 1024 },
 });
 
+app.set('trust proxy', 1);
+
 app.use(cors({
-  origin: true,
+  origin(origin, callback) {
+    if (!origin) {
+      callback(null, true);
+      return;
+    }
+
+    if (!ALLOWED_ORIGIN || origin === ALLOWED_ORIGIN) {
+      callback(null, true);
+      return;
+    }
+
+    callback(null, false);
+  },
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(session({
   secret: SESSION_SECRET,
@@ -31,8 +48,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    secure: IS_PRODUCTION,
+    sameSite: IS_PRODUCTION ? 'none' : 'lax',
     maxAge: 1000 * 60 * 60 * 8,
   },
 }));

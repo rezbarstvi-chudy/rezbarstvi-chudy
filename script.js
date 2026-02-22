@@ -22,7 +22,7 @@ async function initializeApp() {
 
 async function loadWorks() {
   try {
-    const response = await fetch('/api/works');
+    const response = await fetch(window.apiUrl('/api/works'));
     const data = await response.json();
     works = data.works || [];
 
@@ -157,7 +157,7 @@ async function uploadImage(file) {
   const formData = new FormData();
   formData.append('image', file);
 
-  const response = await fetch('/api/uploads', {
+  const response = await fetch(window.apiUrl('/api/uploads'), {
     method: 'POST',
     credentials: 'include',
     body: formData,
@@ -206,7 +206,7 @@ async function addWork() {
       imageUrl = await uploadImage(imageFile);
     }
 
-    const response = await fetch('/api/works', {
+    const response = await fetch(window.apiUrl('/api/works'), {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -258,7 +258,7 @@ function setupContactForm() {
     resultNode.textContent = '';
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(window.apiUrl('/api/contact'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message }),

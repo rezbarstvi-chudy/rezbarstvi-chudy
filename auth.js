@@ -3,8 +3,14 @@ const authState = {
   user: null,
 };
 
+const API_BASE_URL = (window.APP_CONFIG?.API_BASE_URL || '').replace(/\/$/, '');
+
+function apiUrl(path) {
+  return `${API_BASE_URL}${path}`;
+}
+
 async function apiRequest(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await fetch(apiUrl(path), {
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
@@ -151,3 +157,4 @@ function updateAuthUI() {
 document.addEventListener('DOMContentLoaded', checkAuth);
 window.updateAuthUI = updateAuthUI;
 window.isAuthenticated = () => authState.authenticated;
+window.apiUrl = apiUrl;
