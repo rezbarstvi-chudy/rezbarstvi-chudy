@@ -37,3 +37,9 @@ Aplikace poběží na `http://localhost:3000`.
 
 Pro kombinaci **GitHub Pages + backend + úložiště obrázků** je doporučený postup v souboru `DEPLOYMENT_FREE.md`.
 
+
+## Stav frontendu
+
+- Přihlášení už používá backend endpointy (`/api/auth/login`, `/api/auth/me`, `/api/auth/logout`) a nepoužívá `localStorage` pro heslo.
+- Přidávání děl používá `input type="file"` a nahrává soubor přes `/api/uploads`, poté ukládá položku přes `/api/works`.
+- Kontaktní formulář odesílá data na `/api/contact` (varianta B).
