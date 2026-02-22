@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to My Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chudy's Woodcarving Portfolio</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my GitHub Pages site!</p>
+    <header>
+        <nav>
+            <h1>Chudy's Woodcarving</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Welcome to My Woodcarving Portfolio</h2>
+        <p>Explore the art of woodcarving with my unique creations.</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate woodcarver with years of experience creating beautiful pieces from wood. Each piece is crafted with precision and love.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div id="gallery-categories"></div>
+        <div id="gallery-works"></div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
 </body>
 </html>
